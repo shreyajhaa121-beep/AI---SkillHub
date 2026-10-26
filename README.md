@@ -1,4 +1,4 @@
-# AI SkillHub v1
+# AI SkillHub 
 A static, mobile-friendly AI tools learning directory built with HTML, CSS and JavaScript.
 
 ## Files
