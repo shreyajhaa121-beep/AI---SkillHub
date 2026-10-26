@@ -1,1 +1,334 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover AI tools, learn with beginner-friendly tutorials, and practise your AI skills.">
+  <meta name="theme-color" content="#0b1020">
+
+  <title>AI SkillHub — Discover, Learn, Practise</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="data/tools.js" defer></script>
+  <script src="data/tutorials.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <!-- Header and Navigation -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#home">AI <span>SkillHub</span></a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-expanded="false"
+        aria-controls="navLinks"
+        type="button"
+      >
+        ☰ Menu
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#tools">Explore tools</a>
+        <a href="#recommend">Find a tool</a>
+        <a href="#tutorials">Tutorials</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#saved">
+          Saved tools <span class="saved-count" id="savedCount">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+
+    <!-- Hero Section -->
+    <section class="hero container">
+      <p class="eyebrow">Your AI learning journey starts here</p>
+
+      <h1>
+        Discover AI.<br>
+        <span>Learn AI. Build with AI.</span>
+      </h1>
+
+      <p class="hero-copy">
+        Explore useful AI tools, learn how to use them step by step,
+        and practise skills at your own pace.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#tools">
+          Explore AI tools
+        </a>
+        <a class="button button-secondary" href="#recommend">
+          Find the right tool
+        </a>
+      </div>
+
+      <div class="hero-note">
+        <span class="status-dot"></span>
+        Beginner-friendly guides · Free to explore · Learn responsibly
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="container section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2>Learn by doing</h2>
+        </div>
+        <p>
+          One place to discover tools, follow tutorials
+          and check what you learned.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-icon">🧭</span>
+          <h3>Discover</h3>
+          <p>
+            Browse tools by what you want to do,
+            from studying to coding.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon">📘</span>
+          <h3>Learn</h3>
+          <p>
+            Follow clear steps and try example prompts
+            for yourself.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon">🧠</span>
+          <h3>Practise</h3>
+          <p>
+            Take a short quiz and review explanations
+            for each answer.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- AI Tools Directory -->
+    <section class="container section" id="tools">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Explore the directory</p>
+          <h2>Find an AI tool</h2>
+        </div>
+        <p>
+          Features and free-plan availability can change.
+          Check official websites for current details.
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-wrap" for="searchInput">
+          <span aria-hidden="true">⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search tools or tasks..."
+            autocomplete="off"
+          >
+        </label>
+
+        <label class="visually-hidden" for="categoryFilter">
+          Filter by category
+        </label>
+
+        <select id="categoryFilter">
+          <option value="all">All categories</option>
+        </select>
+      </div>
+
+      <p class="result-count" id="toolResultCount" aria-live="polite"></p>
+
+      <div class="tool-grid" id="toolGrid" aria-live="polite"></div>
+
+      <p class="empty-state hidden" id="toolEmpty">
+        No tools match your search. Try another word or category.
+      </p>
+    </section>
+
+    <!-- Tool Recommendations -->
+    <section class="section section-tint" id="recommend">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Personalised starting point</p>
+            <h2>What do you want to do?</h2>
+          </div>
+          <p>
+            Choose a goal to get suggestions.
+            This version uses rule-based matching.
+          </p>
+        </div>
+
+        <form class="recommend-form" id="recommendForm">
+          <div>
+            <label for="goalSelect">My goal</label>
+
+            <select id="goalSelect" required>
+              <option value="study">Study and understand a topic</option>
+              <option value="coding">Learn coding or debug code</option>
+              <option value="writing">Write or improve text</option>
+              <option value="research">Research and organise information</option>
+              <option value="images">Create images or designs</option>
+              <option value="presentations">Make a presentation</option>
+            </select>
+          </div>
+
+          <button class="button button-primary" type="submit">
+            Recommend tools
+          </button>
+        </form>
+
+        <div
+          id="recommendationResults"
+          class="tool-grid recommendation-grid"
+          aria-live="polite"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Tutorials -->
+    <section class="container section" id="tutorials">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Start learning</p>
+          <h2>Beginner tutorials</h2>
+        </div>
+        <p>
+          Choose a guide, follow the steps and try the sample prompt.
+        </p>
+      </div>
+
+      <div class="tutorial-layout">
+        <div class="tutorial-list" id="tutorialList"></div>
+
+        <article class="tutorial-detail" id="tutorialDetail" aria-live="polite">
+          <p class="muted">
+            Select a tutorial to see the lesson here.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section section-tint" id="quiz">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Check your understanding</p>
+            <h2>AI learning quiz</h2>
+          </div>
+          <p>
+            Answer 10 questions about using AI thoughtfully and effectively.
+          </p>
+        </div>
+
+        <div class="quiz-panel" id="quizPanel">
+          <div class="quiz-start" id="quizStart">
+            <div class="quiz-symbol">✦</div>
+
+            <h3>Ready to practise?</h3>
+
+            <p>
+              Each question has one best answer.
+              You'll see an explanation after you answer.
+            </p>
+
+            <button class="button button-primary" id="startQuiz" type="button">
+              Start quiz
+            </button>
+
+            <p class="small muted" id="lastScore"></p>
+          </div>
+
+          <div id="quizQuestionArea" class="hidden"></div>
+
+          <div id="quizResult" class="hidden" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Saved Tools -->
+    <section class="container section" id="saved">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Your personal list</p>
+          <h2>Saved tools</h2>
+        </div>
+        <p>
+          Favourites are stored in this browser on this device.
+        </p>
+      </div>
+
+      <div class="tool-grid" id="savedGrid"></div>
+
+      <p class="empty-state" id="savedEmpty">
+        You haven't saved any tools yet.
+        Tap “Save tool” on a tool card.
+      </p>
+    </section>
+
+    <!-- Responsible AI -->
+    <section class="container section">
+      <div class="responsible-card">
+        <div class="responsible-icon">💡</div>
+
+        <div>
+          <h2>Use AI as a helper, not a replacement for thinking</h2>
+
+          <p>
+            Check important facts, protect private information,
+            respect other people's work, and make your own judgement.
+            AI tools can make mistakes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#home">AI <span>SkillHub</span></a>
+
+      <p>
+        Independent learning directory.
+        AI SkillHub is not affiliated with the tools listed.
+      </p>
+
+      <p>
+        Tool names belong to their respective owners.
+        Features, pricing and availability can change.
+      </p>
+
+      <p>
+        © <span id="year"></span> AI SkillHub · Learn responsibly.
+        Think independently.
+      </p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="noscript">
+      Please enable JavaScript to use search, recommendations,
+      tutorials and quizzes.
+    </p>
+  </noscript>
+</body>
+  </html>
+
