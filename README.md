@@ -1,25 +1,61 @@
-# AI SkillHub 
-A static, mobile-friendly AI tools learning directory built with HTML, CSS and JavaScript.
+AI SkillHub 🚀
 
-## Files
-- `index.html` — page structure
-- `style.css` — styling and responsive layout
-- `app.js` — search, category filters, recommendations, tutorials, quiz and LocalStorage
-- `data/tools.js` — curated starter AI tools
-- `data/tutorials.js` — beginner tutorials and example prompts
+Discover AI. Learn AI. Build with AI.
 
-## Run
-Open `index.html` in a browser. All files and the `data` folder must remain in the same structure.
+AI SkillHub is a beginner-friendly directory of AI tools that helps learners discover useful tools, follow step-by-step tutorials, find tools for specific goals, and practise their knowledge through a quiz.
 
-## GitHub Pages
-1. Commit these files and the `data` folder to the repository.
-2. Open repository Settings → Pages.
-3. Choose deployment from a branch, select your main branch and `/ (root)`, then save.
-4. Wait for the published URL to appear.
+🌐 Live Demo
 
-## Limitations
-- No backend or user accounts.
-- Favourites and quiz score stay in the current browser/device.
-- Recommendations use predefined rules, not an AI model.
-- Review tool details, terms, features and links regularly.
-- 
+"Visit AI SkillHub" (https://shreyajhaa121-beep.github.io/AI---SkillHub/)
+
+✨ Features
+
+- AI Tool Directory: Explore 20 AI tools across different categories.
+- Search and Filters: Find tools by name, task, or category.
+- Goal-Based Recommendations: Discover tools suited to your learning goals.
+- Beginner-Friendly Tutorials: Follow practical guides with example prompts.
+- Interactive Quiz: Test your understanding and review your score.
+- Saved Tools: Save useful tools for later.
+- Responsive Design: Use the website on mobile devices and desktop screens.
+
+🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Browser Local Storage
+- GitHub Pages
+
+📂 Project Structure
+
+AI---SkillHub/
+
+- index.html — Main webpage structure and content.
+- style.css — Website design, colors, layout, and responsive styling.
+- app.js — JavaScript functionality, including search, filters, recommendations, saved tools, tutorials, and quizzes.
+- data/ — Folder containing the website's data files.
+  - tools.js — AI tools information, categories, descriptions, and official links.
+  - tutorials.js — Beginner-friendly tutorials, learning steps, and example prompts.
+- README.md — Project overview, features, technologies, and documentation.
+
+🚀 Getting Started
+
+1. Open the live demo using the link above.
+2. Browse the AI tool directory.
+3. Search for tools or filter them by category.
+4. Explore tutorials and try the example prompts.
+5. Take the quiz and save useful tools for later.
+
+🎯 Project Goal
+
+The goal of AI SkillHub is to make discovering and learning about AI tools easier for beginners through a simple, organised, and interactive website.
+
+👩‍💻 Author
+
+Shreya Kumari
+
+Computer Science and Engineering Diploma Student
+
+📄 Disclaimer
+
+AI tool features, availability, pricing, and terms may change. Visit each tool's official website to verify current details.
